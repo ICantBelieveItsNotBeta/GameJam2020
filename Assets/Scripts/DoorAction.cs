@@ -3,7 +3,6 @@
 public class DoorAction : ReactiveObject
 {
     public float speed = 0.5f;
-    public bool vertical = true;
     
     private bool _opening;
     private Vector3 _vector;
@@ -11,16 +10,8 @@ public class DoorAction : ReactiveObject
 
     void Awake()
     {
-        if (vertical)
-        {
-            _initialSize = transform.parent.localScale.y;
-            _vector = new Vector3(0, speed, 0);
-        }
-        else
-        {
-            _initialSize = transform.parent.localScale.x;
-            _vector = new Vector3(speed, 0, 0);
-        }
+        _initialSize = transform.parent.localScale.y;
+        _vector = new Vector3(0, speed, 0);
     }
 
     public override void Activate()
@@ -35,19 +26,18 @@ public class DoorAction : ReactiveObject
 
     public void Update()
     {
-        if (vertical)
+        if (_opening && transform.parent.localScale.y > 0)
         {
-            if (_opening && transform.parent.localScale.y > 0)
-                transform.parent.localScale -= _vector;
-            else if (!_opening && transform.localScale.y < _initialSize)
-                transform.parent.localScale += _vector;
+            transform.parent.localScale -= _vector;
+            if (transform.parent.localScale.y < 0)
+            {
+                transform.parent.localScale = new Vector3(
+                    transform.parent.localScale.x,
+                    0,
+                    transform.parent.localScale.z);
+            }
         }
-        else
-        {
-            if (_opening && transform.parent.localScale.x > 0)
-                transform.parent.localScale -= _vector;
-            else if (!_opening && transform.parent.localScale.x < _initialSize)
-                transform.parent.localScale += _vector;
-        }
+        else if (!_opening && transform.parent.localScale.y < _initialSize)
+            transform.parent.localScale += _vector;
     }
 }
