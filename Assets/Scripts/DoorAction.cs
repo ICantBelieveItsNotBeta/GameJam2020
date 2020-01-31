@@ -4,7 +4,6 @@ public class DoorAction : ReactiveObject
 {
     public float speed = 0.5f;
     
-    private bool _opening;
     private Vector3 _vector;
     private float _initialSize;
 

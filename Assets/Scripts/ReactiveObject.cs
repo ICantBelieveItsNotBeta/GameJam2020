@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class ReactiveObject : MonoBehaviour
 {
-    private bool _active = false;
+    protected bool _opening;
     
     public virtual void Activate()
     {
@@ -17,6 +17,6 @@ public abstract class ReactiveObject : MonoBehaviour
 
     public void ToggleState()
     {
-        _active = !_active;
+        _opening = !_opening;
     }
 }
