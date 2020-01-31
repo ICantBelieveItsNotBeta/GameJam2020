@@ -84,7 +84,7 @@ public class TopMovement : MonoBehaviour
             rb.velocity = new Vector2(-runspeed, rb.velocity.y);
         }
 
-        if ((touchingLaddercount > 0 && verticalDir == 1) && activeHalf)
+        if ((touchingLaddercount > 0 && verticalDir != 0) && activeHalf)
         {
             isClimbing = true;
         }
