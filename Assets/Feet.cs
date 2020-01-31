@@ -5,25 +5,22 @@ using UnityEngine;
 public class Feet : MonoBehaviour
 {
     public bool colliding;
+    public bool top;
+    public bool finished;
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        colliding = true;
+        if (top && (collision.gameObject.GetComponent<BottomMovement>() != null))
         {
-            colliding = true;
+            finished = true;
+            print("finished!");
         }
 
 
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
-        {
-
-            colliding = false;
-
-
-        }
-
+        colliding = false;
 
     }
 

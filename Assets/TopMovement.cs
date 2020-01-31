@@ -30,7 +30,6 @@ public class TopMovement : MonoBehaviour
     {
         activeHalf = !activeHalf;
         bottom.activeHalf = !bottom.activeHalf;
-        print("switched");
     }
     void Update()
     {
