@@ -5,15 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager levels;
-
     public List<string> scenes;
 
-    private void Awake()
-    {
-        levels = this;
-    }
-
+    int currentLevel;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +23,18 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(int levelIndex)
     {
+        currentLevel = levelIndex;
         SceneManager.LoadScene(scenes[levelIndex]);
+    }
+
+    public void WinLevel()
+    {
+        int newLevelIndex = currentLevel + 1;
+
+        if (scenes.Count > newLevelIndex)
+        {
+            LoadLevel(newLevelIndex);
+        }
+        else WorldManager.worldManager.WinGame();        
     }
 }

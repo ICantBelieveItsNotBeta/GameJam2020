@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour
 
     public void PlayButton()
     {
-        LevelManager.levels.LoadLevel(1);
+        WorldManager.levelManager.LoadLevel(1);
     }
 
     public void LevelSelectButton()
@@ -35,7 +35,7 @@ public class Menu : MonoBehaviour
 
     public void SelectLevelButton(int levelIndex)
     {
-        LevelManager.levels.LoadLevel(levelIndex);
+        WorldManager.levelManager.LoadLevel(levelIndex);
     }
 
 }

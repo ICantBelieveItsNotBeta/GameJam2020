@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class WorldManager : MonoBehaviour
 {
+    public static WorldManager worldManager;
+    public static LevelManager levelManager;
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        worldManager = this;
+        levelManager = GetComponent<LevelManager>();
     }
 
     // Start is called before the first frame update
@@ -20,5 +24,11 @@ public class WorldManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void WinGame()
+    {
+        Debug.Log("YOU WIN!");
+        levelManager.LoadLevel(0);
     }
 }
