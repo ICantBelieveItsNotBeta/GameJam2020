@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class BottomMovement : MonoBehaviour
+public class TopMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     float distToGround = 0;
@@ -12,9 +12,10 @@ public class BottomMovement : MonoBehaviour
     public float groundFriction;
     public float accel;
     public float groundFrictionSpeedMult;
-    bool jumping;
     public bool activeHalf;
+    bool jumping;
     float grav;
+    public BottomMovement bottom;
     public Feet feet;
     Rigidbody2D rb;
     void Start()
@@ -25,9 +26,22 @@ public class BottomMovement : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Switch()
+    {
+        activeHalf = !activeHalf;
+        bottom.activeHalf = !bottom.activeHalf;
+        print("switched");
+    }
     void Update()
     {
         var jump = Input.GetAxisRaw("Jump") == 1;
+        var switchControls = Input.GetButtonDown("Switch");
+
+        if (switchControls)
+        {
+            Switch();
+        }
+
         if (activeHalf && jump && IsGrounded())
         {
             if (!jumping)
@@ -43,6 +57,7 @@ public class BottomMovement : MonoBehaviour
     }
     bool IsGrounded()
     {
+        //print(feet.colliding);
         return feet.colliding;
     }
     private void FixedUpdate()
