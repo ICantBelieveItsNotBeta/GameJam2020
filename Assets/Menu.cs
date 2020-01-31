@@ -1,0 +1,41 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Menu : MonoBehaviour
+{
+    public GameObject LevelSelectMenu;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void PlayButton()
+    {
+        LevelManager.levels.LoadLevel(1);
+    }
+
+    public void LevelSelectButton()
+    {
+        LevelSelectMenu.SetActive(true);
+    }
+
+    public void CloseLevelSelectButton()
+    {
+        LevelSelectMenu.SetActive(false);
+    }
+
+    public void SelectLevelButton(int levelIndex)
+    {
+        LevelManager.levels.LoadLevel(levelIndex);
+    }
+
+}
