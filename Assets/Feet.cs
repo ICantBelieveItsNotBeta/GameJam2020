@@ -13,7 +13,7 @@ public class Feet : MonoBehaviour
         if (top && (collision.gameObject.GetComponent<BottomMovement>() != null))
         {
             finished = true;
-            print("finished!");
+            WorldManager.levelManager.WinLevel();
         }
 
 
@@ -21,7 +21,6 @@ public class Feet : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         colliding = false;
-
     }
 
 }
