@@ -7,7 +7,7 @@ public class Feet : MonoBehaviour
     public bool colliding;
     public bool top;
     public bool finished;
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         colliding = true;
         if (top && (collision.gameObject.GetComponent<BottomMovement>() != null))
