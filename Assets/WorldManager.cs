@@ -9,6 +9,13 @@ public class WorldManager : MonoBehaviour
 
     private void Awake()
     {
+        //Stops there being multiple Managers if we return to the Menu.
+        if (GameObject.Find("Managers") != null && GameObject.Find("Managers") != this.gameObject)
+        {
+            DestroyImmediate(this.gameObject);
+            return;
+        }
+
         DontDestroyOnLoad(this.gameObject);
         worldManager = this;
         levelManager = GetComponent<LevelManager>();
