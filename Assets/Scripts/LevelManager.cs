@@ -18,13 +18,18 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Restart")) RestartLevel();
     }
 
     public void LoadLevel(int levelIndex)
     {
         currentLevel = levelIndex;
         SceneManager.LoadScene(scenes[levelIndex]);
+    }
+
+    public void RestartLevel()
+    {
+        LoadLevel(currentLevel);
     }
 
     public void WinLevel()
