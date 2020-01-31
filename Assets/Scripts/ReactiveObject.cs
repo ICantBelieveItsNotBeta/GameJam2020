@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class ReactiveObject : MonoBehaviour
 {
+    private bool _active = false;
     
     public virtual void Activate()
     {
