@@ -12,7 +12,6 @@ public class BottomMovement : MonoBehaviour
     public float groundFriction;
     public float accel;
     public float groundFrictionSpeedMult;
-    bool jumping;
     public bool activeHalf;
     float grav;
     public Feet feet;
@@ -27,18 +26,10 @@ public class BottomMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var jump = Input.GetAxisRaw("Jump") == 1;
+        var jump = Input.GetButtonDown("Jump");
         if (activeHalf && jump && IsGrounded())
         {
-            if (!jumping)
-            {
-                rb.velocity += Vector2.up * jumpforce;
-                jumping = true;
-            }
-        }
-        if (!jump)
-        {
-            jumping = false;
+            rb.velocity += Vector2.up * jumpforce;
         }
     }
     bool IsGrounded()
