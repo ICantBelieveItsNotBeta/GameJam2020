@@ -14,4 +14,9 @@ public abstract class ReactiveObject : MonoBehaviour
     {
         throw new NotImplementedException("You fucking tool");
     }
+
+    public void ToggleState()
+    {
+        _active = !_active;
+    }
 }

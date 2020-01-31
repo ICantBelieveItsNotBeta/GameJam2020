@@ -5,13 +5,7 @@ public class PressureTrigger : MonoBehaviour
     public ReactiveObject reactiveObject;
     public bool playerOnly = false;
 
-    private BoxCollider2D _trigger;
     private int _triggerCount;
-
-    private void Awake()
-    {
-        _trigger = GetComponent<BoxCollider2D>();
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
