@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5739311811523315383}
   - component: {fileID: 1126461724668213054}
   - component: {fileID: 1699632468451409741}
+  - component: {fileID: 5860079297839205191}
   m_Layer: 0
   m_Name: Door Reactor
   m_TagString: Untagged
@@ -94,7 +95,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcb37d36bac4c02acf2960eae58b8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 0.05
+--- !u!61 &5860079297839205191
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925164296177911119}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &5024613811207489994
 GameObject:
   m_ObjectHideFlags: 0
