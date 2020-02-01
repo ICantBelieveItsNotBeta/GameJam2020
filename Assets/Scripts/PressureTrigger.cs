@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
-public class PressureTrigger : MonoBehaviour
+public class PressureTrigger : TriggerBase
 {
-    public ReactiveObject reactiveObject;
     public bool playerOnly = false;
 
     private int _triggerCount;
@@ -21,7 +20,10 @@ public class PressureTrigger : MonoBehaviour
 
         if (_triggerCount > 0)
         {
-            reactiveObject.Activate();
+            foreach (var reactive in reactiveObjects)
+            {
+                reactive.Activate();
+            }
         }
     }
 
@@ -39,7 +41,10 @@ public class PressureTrigger : MonoBehaviour
 
         if (_triggerCount <= 0)
         {
-            reactiveObject.Deactivate();
+            foreach (var reactive in reactiveObjects)
+            {
+                reactive.Deactivate();
+            }
         }
     }
 }
