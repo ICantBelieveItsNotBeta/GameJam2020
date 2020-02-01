@@ -12,7 +12,7 @@ public class PressureTrigger : TriggerBase
             _triggerCount++;
         else
         {
-            if (other.CompareTag("Player"))
+            if (other.GetComponent<BottomMovement>() != null)
             {
                 _triggerCount++;
             }
@@ -33,7 +33,7 @@ public class PressureTrigger : TriggerBase
             _triggerCount--;
         else
         {
-            if (other.CompareTag("Player"))
+            if (other.GetComponent<BottomMovement>() != null)
             {
                 _triggerCount--;
             }
