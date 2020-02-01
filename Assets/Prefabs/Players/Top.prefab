@@ -38,7 +38,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3049143051786544680}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 0.059916537, b: 0, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 2
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -290,7 +290,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.40581965, y: 0.1972533}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -301,7 +301,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.93043184, y: 1.3945066}
   m_EdgeRadius: 0
 --- !u!114 &9218341626279554025
 MonoBehaviour:
@@ -317,8 +317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpforce: 0
   ladderSpeed: 4
-  runspeed: 3.5
-  accel: 30
+  runspeed: 11.55
+  accel: 99
   activeHalf: 0
   bottom: {fileID: 0}
   feet: {fileID: 9218341627237687627}
@@ -367,7 +367,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03769417, y: -0.06027499}
+  m_Offset: {x: -0.4097541, y: -0.06027499}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -378,7 +378,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2855996, y: 0.3455866}
+  m_Size: {x: 0.7944623, y: 0.3455866}
   m_EdgeRadius: 0
 --- !u!114 &9218341627237687627
 MonoBehaviour:
