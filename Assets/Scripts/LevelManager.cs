@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(int levelIndex)
     {
+        WorldManager.worldManager.CloseEscapeMenu();
         currentLevel = levelIndex;
         SceneManager.LoadScene(scenes[levelIndex]);
     }
@@ -41,5 +42,11 @@ public class LevelManager : MonoBehaviour
             LoadLevel(newLevelIndex);
         }
         else WorldManager.worldManager.WinGame();        
+    }
+
+    public bool IsInMenu()
+    {
+        if (currentLevel == 0) return true;
+        else return false;
     }
 }
