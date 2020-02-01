@@ -28,11 +28,11 @@ public class LiftAction : ReactiveObject
     {
         if (_opening && transform.localPosition != targetPosition)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, speed);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, speed*Time.deltaTime);
         }
         else if (!_opening && transform.localPosition != _startPosition)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, _startPosition, speed);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, _startPosition, speed * Time.deltaTime);
         }
     }
 }
