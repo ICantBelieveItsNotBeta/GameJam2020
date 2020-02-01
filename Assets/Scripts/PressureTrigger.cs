@@ -2,23 +2,12 @@
 
 public class PressureTrigger : TriggerBase
 {
-    public bool playerOnly = false;
-
-    private int _triggerCount;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!playerOnly && other.GetComponent<TopMovement>() == null)
-            _triggerCount++;
-        else
-        {
-            if (other.GetComponent<TopMovement>() == null)
-            {
-                _triggerCount++;
-            }
-        }
+        bool cond = other.GetComponent<Block>() || other.GetComponent<BottomMovement>();
 
-        if (_triggerCount > 0)
+        if (cond)
         {
             foreach (var reactive in reactiveObjects)
             {
@@ -29,17 +18,9 @@ public class PressureTrigger : TriggerBase
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!playerOnly && other.GetComponent<TopMovement>() == null)
-            _triggerCount--;
-        else
-        {
-            if (other.GetComponent<TopMovement>() == null)
-            {
-                _triggerCount--;
-            }
-        }
+        bool cond = other.GetComponent<Block>() || other.GetComponent<BottomMovement>();
 
-        if (_triggerCount <= 0)
+        if (cond)
         {
             foreach (var reactive in reactiveObjects)
             {

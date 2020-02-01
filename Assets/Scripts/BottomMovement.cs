@@ -17,14 +17,16 @@ public class BottomMovement : MonoBehaviour
     Rigidbody2D rb;
 
     Light2D selectionLlight;
+    private Animator _animator;
 
     void Start()
     {
-        selectionLlight = GetComponent<Light2D>();
+        selectionLlight = GetComponentInChildren<Light2D>();
 
         rb = GetComponent<Rigidbody2D>();
         accel = accel * rb.mass;
         distToGround = GetComponent<Collider2D>().bounds.extents.y;
+        _animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -35,8 +37,18 @@ public class BottomMovement : MonoBehaviour
         {
             rb.velocity += Vector2.up * jumpforce;
         }
+        var direction = 1f;
+        if (rb.velocity.x != 0f)
+        {
+            direction = (Mathf.Abs(rb.velocity.x) / rb.velocity.x);
+        }
+        _animator.transform.localScale = new Vector3(direction * Mathf.Abs(_animator.transform.localScale.x), _animator.transform.localScale.y, 1);
+        GetComponent<SpriteRenderer>().flipX = direction == -1;
+        _animator.SetFloat("HorizontalVelocity", Mathf.Abs(rb.velocity.x));
+        _animator.SetFloat("VerticalVelocity", Mathf.Abs(rb.velocity.y));
+        _animator.SetBool("isGrounded", IsGrounded());
     }
-    bool IsGrounded()
+    bool IsGrounded()    
     {
         return feet.colliding;
     }
