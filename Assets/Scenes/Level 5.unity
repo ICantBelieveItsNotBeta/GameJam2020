@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -223,8 +223,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26197360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.687, y: -0.86, z: 0}
-  m_LocalScale: {x: 4.3833623, y: 0.71739995, z: 1}
+  m_LocalPosition: {x: 0.952, y: -0.86, z: 0}
+  m_LocalScale: {x: 4.913749, y: 0.71739995, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -789,7 +789,7 @@ PrefabInstance:
     - target: {fileID: 7790161825482471814, guid: eb0d98e26d2fca141bf2e33d210068a3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.73
+      value: 0.537
       objectReference: {fileID: 0}
     - target: {fileID: 7790161825482471814, guid: eb0d98e26d2fca141bf2e33d210068a3,
         type: 3}
@@ -844,7 +844,7 @@ PrefabInstance:
     - target: {fileID: 7790161825482471814, guid: eb0d98e26d2fca141bf2e33d210068a3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5078053
+      value: 0.8932295
       objectReference: {fileID: 0}
     - target: {fileID: 7790161825482471819, guid: eb0d98e26d2fca141bf2e33d210068a3,
         type: 3}
@@ -942,7 +942,7 @@ PrefabInstance:
     - target: {fileID: 3274797181164523851, guid: 35cf664d6ee47004aabd6a8e056289eb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.852
+      value: -0.97
       objectReference: {fileID: 0}
     - target: {fileID: 3274797181164523851, guid: 35cf664d6ee47004aabd6a8e056289eb,
         type: 3}
@@ -997,7 +997,7 @@ PrefabInstance:
     - target: {fileID: 3274797181164523851, guid: 35cf664d6ee47004aabd6a8e056289eb,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.693
+      value: 0.4572996
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35cf664d6ee47004aabd6a8e056289eb, type: 3}
