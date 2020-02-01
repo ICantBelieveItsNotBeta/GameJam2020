@@ -10,9 +10,7 @@ public class TopMovement : MonoBehaviour
     public float jumpforce;
     public float ladderSpeed;
     public float runspeed;
-    public float groundFriction;
     public float accel;
-    public float groundFrictionSpeedMult;
     public bool activeHalf;
     bool isClimbing;
     float grav;

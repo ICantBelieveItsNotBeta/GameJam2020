@@ -9,9 +9,7 @@ public class BottomMovement : MonoBehaviour
     float distToGround = 0;
     public float jumpforce;
     public float runspeed;
-    public float groundFriction;
     public float accel;
-    public float groundFrictionSpeedMult;
     public bool activeHalf;
     float grav;
     public Feet feet;
@@ -20,6 +18,7 @@ public class BottomMovement : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody2D>();
+        accel = accel * rb.mass;
         distToGround = GetComponent<Collider2D>().bounds.extents.y;
     }
 
@@ -50,10 +49,6 @@ public class BottomMovement : MonoBehaviour
         else if (rb.velocity.x < -runspeed)
         {
             rb.velocity = new Vector2(-runspeed, rb.velocity.y);
-        }
-        if (IsGrounded())
-        {
-            rb.AddForce(-Vector2.right * (float)Math.Tanh(groundFrictionSpeedMult * rb.velocity.x) * groundFriction);
         }
     }
 }
