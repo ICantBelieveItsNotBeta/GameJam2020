@@ -25,16 +25,18 @@ public class TopMovement : MonoBehaviour
 
         if (bottom == null)
         {
-            print("your top needs a bottom!!!");
+            print("ERROR: your top needs a bottom!!!");
         }
         rb = GetComponent<Rigidbody2D>();
         distToGround = GetComponent<Collider2D>().bounds.extents.y;
         grav = rb.gravityScale;
+
     }
 
     // Update is called once per frame
     void Switch()
     {
+
         activeHalf = !activeHalf;
         bottom.activeHalf = !bottom.activeHalf;
     }
