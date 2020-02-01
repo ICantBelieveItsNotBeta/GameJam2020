@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,5 +38,10 @@ public class WorldManager : MonoBehaviour
     {
         Debug.Log("YOU WIN!");
         levelManager.LoadLevel(0);
+    }
+
+    public void Kill()
+    {
+        levelManager.RestartLevel();
     }
 }
