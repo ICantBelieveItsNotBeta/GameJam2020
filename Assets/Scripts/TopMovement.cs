@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class TopMovement : MonoBehaviour
 {
@@ -18,10 +19,15 @@ public class TopMovement : MonoBehaviour
     public Feet feet;
     Rigidbody2D rb;
 
+
+    Light2D selectionLlight;
+
     int touchingLaddercount;
 
     void Start()
     {
+        selectionLlight = GetComponent<Light2D>();
+
 
         if (bottom == null)
         {
@@ -36,9 +42,11 @@ public class TopMovement : MonoBehaviour
     // Update is called once per frame
     void Switch()
     {
-
         activeHalf = !activeHalf;
         bottom.activeHalf = !bottom.activeHalf;
+
+        ChangeLight(activeHalf);
+        bottom.ChangeLight(bottom.activeHalf);
     }
     void Update()
     {
@@ -71,5 +79,9 @@ public class TopMovement : MonoBehaviour
             rb.velocity = new Vector2(-runspeed, rb.velocity.y);
         }
 
+    }
+    public void ChangeLight(bool On)
+    {
+        selectionLlight.enabled = On;
     }
 }
