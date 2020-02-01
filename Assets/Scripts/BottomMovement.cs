@@ -37,10 +37,13 @@ public class BottomMovement : MonoBehaviour
         {
             rb.velocity += Vector2.up * jumpforce;
         }
-
-        var horDirection = Mathf.Abs(rb.velocity.x) / rb.velocity.x;
-        _animator.transform.localScale = new Vector3(horDirection * Mathf.Abs(_animator.transform.localScale.x), _animator.transform.localScale.y, 1);
-        GetComponent<SpriteRenderer>().flipX = horDirection == -1;
+        var direction = 1f;
+        if (rb.velocity.x != 0f)
+        {
+            direction = (Mathf.Abs(rb.velocity.x) / rb.velocity.x);
+        }
+        _animator.transform.localScale = new Vector3(direction * Mathf.Abs(_animator.transform.localScale.x), _animator.transform.localScale.y, 1);
+        GetComponent<SpriteRenderer>().flipX = direction == -1;
         _animator.SetFloat("HorizontalVelocity", Mathf.Abs(rb.velocity.x));
         _animator.SetFloat("VerticalVelocity", Mathf.Abs(rb.velocity.y));
         _animator.SetBool("isGrounded", IsGrounded());
