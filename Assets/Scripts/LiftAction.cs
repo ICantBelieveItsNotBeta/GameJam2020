@@ -6,32 +6,31 @@ public class LiftAction : ReactiveObject
     public float speed = 0.01f;
     public Vector3 targetPosition;
 
-    private bool _activated;
     private Vector3 _startPosition;
 
     private void Awake()
     {
-        _startPosition = transform.localPosition;
+        _startPosition = transform.position;
         targetPosition += _startPosition;
     }
 
     public override void Activate()
     {
-        _activated = true;
+        _opening = true;
     }
 
     public override void Deactivate()
     {
-        _activated = false;
+        _opening = false;
     }
 
     private void Update()
     {
-        if (_activated && transform.localPosition != targetPosition)
+        if (_opening && transform.localPosition != targetPosition)
         {
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, speed);
         }
-        else if (!_activated && transform.localPosition != _startPosition)
+        else if (!_opening && transform.localPosition != _startPosition)
         {
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, _startPosition, speed);
         }
