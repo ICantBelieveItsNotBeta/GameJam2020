@@ -51,26 +51,9 @@ public class TopMovement : MonoBehaviour
         return feet.colliding;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Ladder")
-        {
-            print("trigger enter");
-            StartTouchingLadder();
-
-        }
-    }
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Ladder")
-        {
-            StopTouchingLadder();
-        }
-    }
     private void FixedUpdate()
     {
         var horizontalDir = Input.GetAxisRaw("Horizontal");
-        var verticalDir = Input.GetAxisRaw("Vertical");
         if (activeHalf)
         {
             rb.AddForce(Vector2.right * accel * horizontalDir);
@@ -84,28 +67,5 @@ public class TopMovement : MonoBehaviour
             rb.velocity = new Vector2(-runspeed, rb.velocity.y);
         }
 
-        if ((touchingLaddercount > 0 && verticalDir != 0) && activeHalf)
-        {
-            isClimbing = true;
-        }
-        if (isClimbing && activeHalf)
-        {
-            rb.velocity = Vector2.up * verticalDir * ladderSpeed;
-        }
-    }
-    void StartTouchingLadder()
-    {
-        touchingLaddercount++;
-        rb.gravityScale = 0;
-    }
-    void StopTouchingLadder()
-    {
-        touchingLaddercount--;
-
-        if (touchingLaddercount <= 0)
-        {
-            isClimbing = false;
-            rb.gravityScale = grav;
-        }
     }
 }
