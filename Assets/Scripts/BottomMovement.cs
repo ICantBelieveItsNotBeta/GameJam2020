@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class BottomMovement : MonoBehaviour
 {
@@ -14,8 +15,12 @@ public class BottomMovement : MonoBehaviour
     float grav;
     public Feet feet;
     Rigidbody2D rb;
+
+    Light2D selectionLlight;
+
     void Start()
     {
+        selectionLlight = GetComponent<Light2D>();
 
         rb = GetComponent<Rigidbody2D>();
         accel = accel * rb.mass;
@@ -50,5 +55,10 @@ public class BottomMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(-runspeed, rb.velocity.y);
         }
+    }
+
+    public void ChangeLight(bool On)
+    {
+        selectionLlight.enabled = On;
     }
 }
