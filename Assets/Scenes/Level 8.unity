@@ -149,12 +149,12 @@ PrefabInstance:
     - target: {fileID: 6842767169289390903, guid: eb0d98e26d2fca141bf2e33d210068a3,
         type: 3}
       propertyPath: targetPosition.y
-      value: -10.5
+      value: -34.65
       objectReference: {fileID: 0}
     - target: {fileID: 6842767169289390903, guid: eb0d98e26d2fca141bf2e33d210068a3,
         type: 3}
       propertyPath: speed
-      value: 2
+      value: 6.6
       objectReference: {fileID: 0}
     - target: {fileID: 7790161825482471814, guid: eb0d98e26d2fca141bf2e33d210068a3,
         type: 3}
