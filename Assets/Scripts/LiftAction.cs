@@ -5,13 +5,14 @@ public class LiftAction : ReactiveObject
 {
     public float speed = 0.01f;
     public Vector3 targetPosition;
-    
+
     private bool _activated;
     private Vector3 _startPosition;
 
     private void Awake()
     {
         _startPosition = transform.localPosition;
+        targetPosition += _startPosition;
     }
 
     public override void Activate()
