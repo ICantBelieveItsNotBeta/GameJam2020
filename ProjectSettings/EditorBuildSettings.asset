@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 8.unity
     guid: b24a7d025c04e6f4ca5735c5e32d6a39
+<<<<<<< Updated upstream
+=======
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+>>>>>>> Stashed changes
   m_configObjects: {}
