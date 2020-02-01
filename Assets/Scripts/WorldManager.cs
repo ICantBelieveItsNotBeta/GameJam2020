@@ -8,6 +8,8 @@ public class WorldManager : MonoBehaviour
     public static WorldManager worldManager;
     public static LevelManager levelManager;
 
+    public GameObject escapeMenuPanel;
+
     private void Awake()
     {
         //Stops there being multiple Managers if we return to the Menu.
@@ -31,7 +33,7 @@ public class WorldManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape) && !levelManager.IsInMenu()) escapeMenuPanel.SetActive(!escapeMenuPanel.activeSelf);
     }
 
     public void WinGame()
@@ -43,5 +45,11 @@ public class WorldManager : MonoBehaviour
     public void Kill()
     {
         levelManager.RestartLevel();
+        CloseEscapeMenu();
+    }
+
+    public void CloseEscapeMenu()
+    {
+        escapeMenuPanel.SetActive(false);
     }
 }
