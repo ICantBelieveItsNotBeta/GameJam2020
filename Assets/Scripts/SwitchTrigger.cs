@@ -4,6 +4,7 @@ using UnityEngine;
 public class SwitchTrigger : TriggerBase
 {
     private bool _inCollider;
+    private TopMovement _topMovement;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<TopMovement>() != null)
@@ -20,9 +21,14 @@ public class SwitchTrigger : TriggerBase
         }
     }
 
+    private void Awake()
+    {
+        _topMovement = FindObjectOfType<TopMovement>();
+    }
+
     private void Update()
     {
-        if (Input.GetButtonDown("Jump") && _inCollider)
+        if (Input.GetButtonDown("Jump") && _inCollider && _topMovement.activeHalf)
         {
             foreach (var reactive in reactiveObjects)
             {
