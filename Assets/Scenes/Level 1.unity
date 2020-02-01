@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -128,6 +128,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 18854632, guid: 22d2857eb90a0c74dbfd60c263c5b0f4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6638340183820994696, guid: 22d2857eb90a0c74dbfd60c263c5b0f4,
         type: 3}
       propertyPath: m_Name
@@ -136,12 +140,12 @@ PrefabInstance:
     - target: {fileID: 6638340183820994701, guid: 22d2857eb90a0c74dbfd60c263c5b0f4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.6947002
+      value: -6.03
       objectReference: {fileID: 0}
     - target: {fileID: 6638340183820994701, guid: 22d2857eb90a0c74dbfd60c263c5b0f4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.041196
+      value: -3.77
       objectReference: {fileID: 0}
     - target: {fileID: 6638340183820994701, guid: 22d2857eb90a0c74dbfd60c263c5b0f4,
         type: 3}
@@ -440,7 +444,7 @@ Transform:
   m_LocalScale: {x: 6.527893, y: 2.2644, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1503055562
 GameObject:
@@ -557,6 +561,18 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1826419629 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6638340183820994703, guid: 22d2857eb90a0c74dbfd60c263c5b0f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 213764244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06714f64a52f53f438b9ffaaa59a91b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2602795309547487571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -564,21 +580,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6600048840062593771, guid: edf1b70affb0b8e4d95ddf4831dec274,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600048840062593771, guid: edf1b70affb0b8e4d95ddf4831dec274,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 9218341626279554025, guid: edf1b70affb0b8e4d95ddf4831dec274,
         type: 3}
       propertyPath: bottom
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1826419629}
     - target: {fileID: 9218341626279554030, guid: edf1b70affb0b8e4d95ddf4831dec274,
         type: 3}
       propertyPath: m_Name
