@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class LaserEmitter : ReactiveObject
 {
     public bool isOn = true;
 
-    LineRenderer lr;
+    Light2D light2D;
 
     LaserSensor lastSensorHit;
 
     private void Start()
     {
-        lr = GetComponent<LineRenderer>();
+        light2D = GetComponentInChildren<Light2D>();
     }
 
     public override void Activate()
@@ -35,17 +36,16 @@ public class LaserEmitter : ReactiveObject
 
     void ShootLaser()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(this.transform.position, this.transform.right);
+        RaycastHit2D hitInfo = Physics2D.Raycast(light2D.transform.position, this.transform.right);
 
         // If it hits something...
         if (hitInfo.collider != null)
         {
             GameObject hitObj = hitInfo.collider.gameObject;
+            
+            light2D.transform.localScale = new Vector3(1, hitInfo.distance*2, 1);
 
-            lr.SetPosition(0, this.transform.position);
-            lr.SetPosition(1, hitInfo.point);
-
-            if(hitObj.tag == "Player") { WorldManager.worldManager.Kill(); return; }
+            if (hitObj.tag == "Player") { WorldManager.worldManager.Kill(); return; }
 
             if (hitObj.GetComponent<LaserSensor>() != null)
             {
@@ -66,8 +66,7 @@ public class LaserEmitter : ReactiveObject
         }
         else
         {
-            lr.SetPosition(0, this.transform.position);
-            lr.SetPosition(1, this.transform.position);
+            light2D.transform.localScale = new Vector3(1, 100, 1);
 
             if (lastSensorHit != null)
             {
