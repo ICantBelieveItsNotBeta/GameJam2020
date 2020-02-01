@@ -6,6 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class LaserEmitter : ReactiveObject
 {
     public bool isOn = true;
+    public bool invert = false;
 
     Light2D light2D;
 
@@ -20,18 +21,19 @@ public class LaserEmitter : ReactiveObject
     {
         base.Activate();
 
-        isOn = true;
+        isOn = !invert;
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
-        isOn = false;
+        isOn = invert;
     }
 
     private void Update()
     {
         if (isOn) ShootLaser();
+        else { light2D.transform.localScale = Vector3.zero; }
     }
 
     void ShootLaser()
@@ -42,8 +44,8 @@ public class LaserEmitter : ReactiveObject
         if (hitInfo.collider != null)
         {
             GameObject hitObj = hitInfo.collider.gameObject;
-            
-            light2D.transform.localScale = new Vector3(1, hitInfo.distance*2, 1);
+
+            light2D.transform.localScale = new Vector3(1, hitInfo.distance * 2, 1);
 
             if (hitObj.tag == "Player") { WorldManager.worldManager.Kill(); return; }
 
@@ -58,7 +60,7 @@ public class LaserEmitter : ReactiveObject
                 lastSensorHit = hitObj.GetComponent<LaserSensor>();
                 lastSensorHit.Activate();
             }
-            else if(lastSensorHit != null)
+            else if (lastSensorHit != null)
             {
                 lastSensorHit.Deactivate();
                 lastSensorHit = null;
