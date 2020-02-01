@@ -19,6 +19,8 @@ public class TopMovement : MonoBehaviour
     public Feet feet;
     Rigidbody2D rb;
 
+    private Animator _animator;
+
 
     Light2D selectionLlight;
 
@@ -26,7 +28,7 @@ public class TopMovement : MonoBehaviour
 
     void Start()
     {
-        selectionLlight = GetComponent<Light2D>();
+        selectionLlight = GetComponentInChildren<Light2D>();
 
 
         if (bottom == null)
@@ -37,6 +39,7 @@ public class TopMovement : MonoBehaviour
         distToGround = GetComponent<Collider2D>().bounds.extents.y;
         grav = rb.gravityScale;
 
+        _animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -57,6 +60,11 @@ public class TopMovement : MonoBehaviour
             Switch();
         }
 
+        var direction = Mathf.Abs(rb.velocity.x) / rb.velocity.x;
+        _animator.transform.localScale = new Vector3(direction * Mathf.Abs(_animator.transform.localScale.x), _animator.transform.localScale.y, 1);
+        GetComponent<SpriteRenderer>().flipX = direction == -1;
+        _animator.SetFloat("HorizontalVelocity", Mathf.Abs(rb.velocity.x));
+        _animator.SetBool("isGrounded", IsGrounded());
     }
     bool IsGrounded()
     {
@@ -78,7 +86,6 @@ public class TopMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(-runspeed, rb.velocity.y);
         }
-
     }
     public void ChangeLight(bool On)
     {
