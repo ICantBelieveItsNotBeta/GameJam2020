@@ -8,11 +8,11 @@ public class PressureTrigger : TriggerBase
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!playerOnly && other.GetComponent<BottomMovement>() != null)
+        if (!playerOnly && other.GetComponent<TopMovement>() == null)
             _triggerCount++;
         else
         {
-            if (other.GetComponent<BottomMovement>() != null)
+            if (other.GetComponent<TopMovement>() == null)
             {
                 _triggerCount++;
             }
@@ -29,11 +29,11 @@ public class PressureTrigger : TriggerBase
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!playerOnly && other.GetComponent<BottomMovement>() != null)
+        if (!playerOnly && other.GetComponent<TopMovement>() == null)
             _triggerCount--;
         else
         {
-            if (other.GetComponent<BottomMovement>() != null)
+            if (other.GetComponent<TopMovement>() == null)
             {
                 _triggerCount--;
             }
