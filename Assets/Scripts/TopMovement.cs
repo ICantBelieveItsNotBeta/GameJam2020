@@ -23,6 +23,10 @@ public class TopMovement : MonoBehaviour
     void Start()
     {
 
+        if (bottom == null)
+        {
+            print("your top needs a bottom!!!");
+        }
         rb = GetComponent<Rigidbody2D>();
         distToGround = GetComponent<Collider2D>().bounds.extents.y;
         grav = rb.gravityScale;
