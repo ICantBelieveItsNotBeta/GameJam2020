@@ -21,6 +21,16 @@ public class Feet : MonoBehaviour
         colliding = true;
         if (top && (collision.gameObject.GetComponent<BottomMovement>() != null))
         {
+            GameObject anim = WorldManager.worldManager.winAnimation;
+
+            anim.transform.position = collision.transform.position - Vector3.up * 1.2f;
+            anim.GetComponent<Animator>().SetBool("Won", true);
+
+            anim.GetComponent<AudioSource>().Play();
+
+            //collision.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
+
             finished = true;
             Invoke("Win", winAnimationTime);
             bottomhalf.SetActive(false);
@@ -31,6 +41,7 @@ public class Feet : MonoBehaviour
     }
     void Win()
     {
+        WorldManager.worldManager.winAnimation.GetComponent<Animator>().SetBool("Won", false);
         WorldManager.levelManager.WinLevel();
     }
     void OnTriggerExit2D(Collider2D collision)
