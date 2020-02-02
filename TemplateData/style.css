@@ -1,6 +1,4 @@
 .webgl-content * {border: 0; margin: 0; padding: 0}
-.webgl-content {position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
-
 .webgl-content .logo, .progress {position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
 .webgl-content .logo {background: url('progressLogo.Light.png') no-repeat center / contain; width: 154px; height: 130px;}
 .webgl-content .progress {height: 18px; width: 141px; margin-top: 90px;}
@@ -16,3 +14,107 @@
 .webgl-content .footer .webgl-logo {background-image: url('webgl-logo.png'); width: 204px; float: left;}
 .webgl-content .footer .title {margin-right: 10px; float: right;}
 .webgl-content .footer .fullscreen {background-image: url('fullscreen.png'); width: 38px; float: right;}
+
+*{
+    font-family: "Roboto", Arial;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+kbd{
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: .85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    margin: 5px;
+    white-space: nowrap;
+}
+
+button{
+    color: #fff;
+    background-color: #7C86A3;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 15px 0;
+    border: 0;
+    font-size: 18px;
+}
+
+table{
+    position:absolute;
+    display:none;
+    z-index: 1;
+    top:150px;
+    left:50px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 20px;
+	border: 10px solid #aaa;
+	border-radius: 15px;
+	background-clip: padding-box;
+	text-align: center;
+}
+
+table.is--visible{
+    display: table;
+}
+
+.table-wrapper{
+    position:relative;
+}
+
+td.left{
+    text-align: center;
+    padding-right: 20px;
+}
+
+td.right{
+    text-align: justify;
+}
+
+header, footer{
+    padding: 10px;
+    background-color: #30343F;
+    color: white;
+}
+
+h1{
+    display: block;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.wrapper{
+    flex: 1 0 auto;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: calc(100% - 40px);
+}
+
+footer{
+    margin-top: 15px;
+    flex-shrink: 0;
+}
+
+a{
+    color: pink;
+    text-decoration: none;
+}
+
+a:hover{
+    color: red;
+}

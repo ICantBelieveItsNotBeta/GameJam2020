@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | GameJam2020</title>
+    <title>Re-Pair | I Can't Believe It's Not Beta | Global Game Jam 2020</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
@@ -13,13 +14,57 @@
     </script>
   </head>
   <body>
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">GameJam2020</div>
+    <header><h1>Re-Pair</h1></header>
+    <div class="wrapper">
+      <button class="control-button" data-popup-trigger="one">Show Controls</button>
+      <div class="table-wrapper"><table data-popup-modal="one" class="control-table">
+        <tr>
+          <td class="left">
+            <kbd>&larr;</kbd>
+            <kbd>&uarr;</kbd>
+            <kbd>&rarr;</kbd>
+            <kbd>&darr;</kbd>
+        </td>
+        <td class="right">Move</td>
+      </tr>
+        <tr>
+          <td class="left"><kbd>J</kbd></td>
+          <td class="right">Swap half</td>
+        </tr>
+        <tr>
+          <td class="left"><kbd>Space</kbd></td>
+          <td class="right">Jump/Interact</td class="right">
+        </tr>
+        <tr>
+          <td class="left"><kbd>R</kbd></td>
+          <td class="right">Reset level</td class="right">
+        </tr>
+        <tr>
+          <td class="left"><kbd>Esc</kbd></td>
+          <td class="right">Menu</td class="right">
+        </tr>
+      </table>
+    </div>
+      <div class="webgl-content">
+        <div id="unityContainer" style="width: 960px; height: 600px"></div>
+        <div class="footer">
+          <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        </div>
       </div>
     </div>
+    <footer><div class="wrapper">Handcrafted by <a href="https://github.com/ICantBelieveItsNotBeta" target="_blank">I Can't Believe It's Not Beta</a> as part of <a href="https://globalgamejam.org/" target="_blank">Global Game Jam 2020</a></div></footer>
+    <script>
+      const modalTriggers = document.querySelector('.control-button')
+      const body = document.querySelector('body')
+      const controlTable = document.querySelector('.control-table')
+
+      body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('control-button') && !controlTable.classList.contains('is--visible')){
+              controlTable.classList.add('is--visible')
+            } else {
+              controlTable.classList.remove('is--visible')
+            }
+          });
+      </script>
   </body>
 </html>
