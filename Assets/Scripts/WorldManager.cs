@@ -8,6 +8,8 @@ public class WorldManager : MonoBehaviour
     public static WorldManager worldManager;
     public static LevelManager levelManager;
 
+    public GameObject winAnimation;
+
     public GameObject escapeMenuPanel;
 
     private void Awake()
