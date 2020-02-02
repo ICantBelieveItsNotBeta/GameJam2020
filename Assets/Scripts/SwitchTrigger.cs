@@ -32,6 +32,7 @@ public class SwitchTrigger : TriggerBase
         {
             foreach (var reactive in reactiveObjects)
             {
+                transform.GetChild(1).localScale = new Vector3(transform.GetChild(1).localScale.x, -transform.GetChild(1).localScale.y, transform.GetChild(1).localScale.z);
                 reactive.ToggleState();
             }
         }
