@@ -57,6 +57,9 @@ button{
 table{
     position:absolute;
     display:none;
+    z-index: 1;
+    top:150px;
+    left:50px;
 	margin: 0 auto;
 	background: #fff;
 	padding: 20px;
