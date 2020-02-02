@@ -73,6 +73,10 @@ table.is--visible{
     display: table;
 }
 
+.table-wrapper{
+    position:relative;
+}
+
 td.left{
     text-align: center;
     padding-right: 20px;
