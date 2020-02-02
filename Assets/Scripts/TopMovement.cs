@@ -40,6 +40,7 @@ public class TopMovement : MonoBehaviour
         grav = rb.gravityScale;
 
         _animator = GetComponentInChildren<Animator>();
+        ChangeLight(activeHalf);
     }
 
     // Update is called once per frame

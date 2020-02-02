@@ -27,6 +27,7 @@ public class BottomMovement : MonoBehaviour
         accel = accel * rb.mass;
         distToGround = GetComponent<Collider2D>().bounds.extents.y;
         _animator = GetComponentInChildren<Animator>();
+        ChangeLight(activeHalf);
     }
 
     // Update is called once per frame
