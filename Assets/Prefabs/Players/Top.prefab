@@ -399,3 +399,4 @@ MonoBehaviour:
   colliding: 0
   top: 1
   finished: 0
+  winAnimationTime: 1
