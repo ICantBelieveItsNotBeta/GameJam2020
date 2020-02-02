@@ -16,6 +16,12 @@ public class Feet : MonoBehaviour
         tophalf = GameObject.Find("Top");
 
     }
+
+    private void Update()
+    {
+        WorldManager.worldManager.winAnimation.GetComponent<Animator>().SetBool("Won", false);
+    }
+
     void OnTriggerStay2D(Collider2D collision)
     {
         colliding = true;
