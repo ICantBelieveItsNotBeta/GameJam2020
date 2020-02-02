@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7790161825482471814}
   - component: {fileID: 7790161825482471817}
-  - component: {fileID: 7790161825482471816}
   - component: {fileID: 6842767169289390903}
+  - component: {fileID: 1768454991866117647}
   m_Layer: 0
   m_Name: Lift Platform
   m_TagString: Ground
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7790161825482471819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.4, y: -4.26, z: 0}
-  m_LocalScale: {x: 2.1759644, y: 0.4347648, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 089ad8614a9e5b24781aeca55e695f0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fd4cdad48830fb45bb936b0c2eb0e9e, type: 3}
   m_Color: {r: 0, g: 0.83832717, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +83,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7790161825482471816
+--- !u!114 &6842767169289390903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7790161825482471819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd32b2a9ac748b29ca659fdd04535a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.01
+  targetPosition: {x: 0, y: -1, z: 0}
+--- !u!61 &1768454991866117647
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,26 +114,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 4, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 2}
   m_EdgeRadius: 0
---- !u!114 &6842767169289390903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7790161825482471819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffd32b2a9ac748b29ca659fdd04535a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.01
-  targetPosition: {x: 0, y: -1, z: 0}
