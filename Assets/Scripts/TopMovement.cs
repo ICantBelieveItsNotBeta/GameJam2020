@@ -21,6 +21,8 @@ public class TopMovement : MonoBehaviour
 
     private Animator _animator;
 
+    private float direction = 1f;
+
 
     Light2D selectionLlight;
 
@@ -61,8 +63,7 @@ public class TopMovement : MonoBehaviour
         {
             Switch();
         }
-
-        var direction = 1f;
+        
         if (rb.velocity.x != 0f)
         {
             direction = (Mathf.Abs(rb.velocity.x) / rb.velocity.x);

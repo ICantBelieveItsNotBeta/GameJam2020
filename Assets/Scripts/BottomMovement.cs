@@ -15,6 +15,7 @@ public class BottomMovement : MonoBehaviour
     float grav;
     public Feet feet;
     Rigidbody2D rb;
+    private float direction = 1f;
 
     Light2D selectionLlight;
     private Animator _animator;
@@ -38,7 +39,6 @@ public class BottomMovement : MonoBehaviour
         {
             rb.velocity += Vector2.up * jumpforce;
         }
-        var direction = 1f;
         if (rb.velocity.x != 0f)
         {
             direction = (Mathf.Abs(rb.velocity.x) / rb.velocity.x);
@@ -49,7 +49,7 @@ public class BottomMovement : MonoBehaviour
         _animator.SetFloat("VerticalVelocity", Mathf.Abs(rb.velocity.y));
         _animator.SetBool("isGrounded", IsGrounded());
         var light = GetComponentInChildren<Light2D>().transform;
-        if (direction == 0f)
+        if (direction != 0f)
         {
             light.localPosition = new Vector3(-direction * Mathf.Abs(light.localPosition.x), light.localPosition.y);
         }
