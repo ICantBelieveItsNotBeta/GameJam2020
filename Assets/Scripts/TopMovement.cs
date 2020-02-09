@@ -8,12 +8,9 @@ public class TopMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     float distToGround = 0;
-    public float jumpforce;
-    public float ladderSpeed;
     public float runspeed;
     public float accel;
     public bool activeHalf;
-    bool isClimbing;
     float grav;
     public BottomMovement bottom;
     public Feet feet;
@@ -21,12 +18,10 @@ public class TopMovement : MonoBehaviour
 
     private Animator _animator;
 
-    private float direction = 1f;
 
 
     Light2D selectionLlight;
 
-    int touchingLaddercount;
 
     void Start()
     {
@@ -64,25 +59,31 @@ public class TopMovement : MonoBehaviour
             Switch();
         }
         
-        if (rb.velocity.x != 0f)
-        {
-            direction = (Mathf.Abs(rb.velocity.x) / rb.velocity.x);
-        }
-
+        var direction = Input.GetAxisRaw("Horizontal");
+        if (direction != 0) {
         _animator.transform.localScale = new Vector3(direction * Mathf.Abs(_animator.transform.localScale.x),
             _animator.transform.localScale.y, 1);
         GetComponent<SpriteRenderer>().flipX = direction == -1;
+        }
         _animator.SetFloat("HorizontalVelocity", Mathf.Abs(rb.velocity.x));
-        _animator.SetBool("isGrounded", IsGrounded());
+
+        if (!IsGrounded()) {
+            Invoke("animateInair", 0.5f);
+        }
+        else {
+        }
         var light = GetComponentInChildren<Light2D>().transform;
-        if (direction == -1f)
+        if (direction == -1)
         {
             light.localPosition = new Vector3(-0.26f, light.localPosition.y);
         }
-        else if (direction == 1f)
+        else if (direction == 1)
         {
             light.localPosition = new Vector3(-0.55f, light.localPosition.y);
         }
+    }
+    void animateInair() {
+        _animator.SetBool("isGrounded", IsGrounded());
     }
 
     bool IsGrounded()

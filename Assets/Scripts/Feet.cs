@@ -6,7 +6,6 @@ public class Feet : MonoBehaviour
 {
     public bool colliding;
     public bool top;
-    public bool finished;
     public float winAnimationTime;
     GameObject bottomhalf;
     GameObject tophalf;
@@ -14,12 +13,12 @@ public class Feet : MonoBehaviour
     {
         bottomhalf = GameObject.Find("Bottom");
         tophalf = GameObject.Find("Top");
+        WorldManager.worldManager.winAnimation.GetComponent<Animator>().SetBool("Won", false);
 
     }
 
     private void Update()
     {
-        WorldManager.worldManager.winAnimation.GetComponent<Animator>().SetBool("Won", false);
     }
 
     void OnTriggerStay2D(Collider2D collision)
@@ -34,14 +33,9 @@ public class Feet : MonoBehaviour
 
             anim.GetComponent<AudioSource>().Play();
 
-            //collision.gameObject.SetActive(false);
-            //this.gameObject.SetActive(false);
-
-            finished = true;
             Invoke("Win", winAnimationTime);
             bottomhalf.SetActive(false);
             tophalf.SetActive(false);
-            // play animation
         }
 
     }

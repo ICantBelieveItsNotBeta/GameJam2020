@@ -43,11 +43,18 @@ public class BottomMovement : MonoBehaviour
         {
             direction = (Mathf.Abs(rb.velocity.x) / rb.velocity.x);
         }
+
         _animator.transform.localScale = new Vector3(direction * Mathf.Abs(_animator.transform.localScale.x), _animator.transform.localScale.y, 1);
         GetComponent<SpriteRenderer>().flipX = direction == -1;
         _animator.SetFloat("HorizontalVelocity", Mathf.Abs(rb.velocity.x));
         _animator.SetFloat("VerticalVelocity", Mathf.Abs(rb.velocity.y));
-        _animator.SetBool("isGrounded", IsGrounded());
+
+        if (!IsGrounded()) {
+            Invoke("animateInair", 0.5f);
+        }
+        else {
+        _animator.SetBool("isGrounded", true);
+        }
         var light = GetComponentInChildren<Light2D>().transform;
         if (direction != 0f)
         {
@@ -57,6 +64,10 @@ public class BottomMovement : MonoBehaviour
     bool IsGrounded()    
     {
         return feet.colliding;
+    }
+
+    void animateInair() {
+        _animator.SetBool("isGrounded", IsGrounded());
     }
     private void FixedUpdate()
     {
